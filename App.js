@@ -1,9 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, ScrollView, StyleSheet, Text, View, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
 import React from 'react';
 import styles from './styles.js';
-import Body from './Componentes/Body.js';
-import constants from 'expo-constants';
 import {useEffect, useState} from 'react';
 
 
@@ -21,7 +19,7 @@ export default function App(){
     }catch(error)
     {
       alert(error);
-    }alert('Saved !')})();
+    }})();
 
 
   },[])
@@ -48,10 +46,10 @@ export default function App(){
 
       <View style={styles.viewTitle}><Text style={styles.textTitle}>Note App</Text></View>  
       {
-      (anotacao != '')?  
-      <View><Text style={styles.textBody}>{anotacao}</Text></View>
-      :
+      (anotacao == '')?  
       <View><Text style={{opacity:0.5, fontSize:16}}> No annotation </Text></View>
+      :
+      <View><Text style={styles.textBody}>{anotacao}</Text></View>
       }
       {
         (anotacao == '')?
@@ -77,11 +75,7 @@ export default function App(){
       </View>
   )
 
-  }else{
-
   }
-  
-
 
 }
 
